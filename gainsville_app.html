@@ -1,25 +1,146 @@
 <html>
 	<head>
-		<title> Gainsville </title>
+		<title> Gainsville - For Your Workout Needs </title>
+		<link rel="icon" href="http://cdn.shopify.com/s/files/1/0185/5092/products/persons-0123.png?v=1369543551"/>
 		<link rel="stylesheet" type="text/css" href="gainsville_app.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Candal|Lato" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".muscle_button").click(function() {
+					$(this).toggleClass("button_highlight");
+					$(".muscle[value=" + $(this).val() + "]").toggleClass("muscle_highlight");
+				});
+
+				$("input[type=submit]").click(function() {
+					// Initialize packed or we get the word 'undefined'
+					var packed = "";
+					var data = new Array();
+					$(".muscle_highlight").each(function(){
+						data.push($(this).attr("id"));
+					});
+					
+					if(data.length <= 0){
+						alert("You must select at least one muscle to work out!");
+						return false;
+					}
+					
+					for (var i = 0; i < data.length; i++)
+						packed += escape(data[i]) + ",";
+					
+					var count = 0;
+					if($(".regular-checkbox:checked").length <= 0){
+						alert("You must select which days of the week to work out!");
+						return false;
+					}
+					
+					$(".regular-checkbox:checked").each(function(){
+						packed += $(this).val();
+						count++;
+						});
+					packed += count;
+					
+					var radioChecked = $("input[name=goals]:checked").val();
+					if(radioChecked == undefined){
+						alert("You must select what your goals are!");
+						return false;
+					}
+					
+					packed += "," + radioChecked;
+					window.location = "workout.html?" + packed;
+				});
+			});
+		</script>
 	</head>
 
-	<body bgColor=#3399FF>
-		<div id="header"> <strong> GAINSVILLE </strong> </div>
-		
-		<div id="body">
-			<a href="workout.html" class="button">
-				<img src="http://colorsnip.com/wp-content/uploads/2016/06/anatomy-coloring-sheets-anatomy-muscles-coloring-pages-designs-canvas-720x460.jpg"/>
-			</a>
+	<body class="noselect">
+		<div id="header">
+			<p>
+				<strong> GAINSVILLE </strong>
+			</p>
 		</div>
-		
-		<div id="daysPerWeek">
+
+	    <div class="navbar-wrap">
+			<ul class="topnav">
+				<li><a href="gainsville_app.html">Home</a></li>
+				<li><a href="calculator.html">Calorie Calculator</a></li>
+			</ul>	
+	    </div>
+
+		<div class="body">
+			<img id="bgImg" src="muscle_images/human_body_anatomy.gif"/>
+			
+			<img id="deltoid" class="muscle" value="deltoids" src="muscle_images/deltoids_combined.gif"/>
+			<input type="button" id="dlt_btn" class="muscle_button" value="deltoids"/>
+			
+			<img id="forearm" class="muscle" value="forearms" src="muscle_images/forearms_combined.gif"/>
+			<input type="button" id="for_btn" class="muscle_button" value="forearms"/>
+			
+			<img id="bicep" class="muscle" value="biceps" src="muscle_images/biceps_combined.gif"/>
+			<input type="button" id="bcp_btn" class="muscle_button" value="biceps"/>
+			
+			<img id="quadricep" class="muscle" value="quadriceps" src="muscle_images/quadriceps_combined.gif"/>
+			<input type="button" id="qdp_btn" class="muscle_button" value="quadriceps"/>
+			
+			<img id="trapezius" class="muscle" value="trapezius" src="muscle_images/trapezius.gif"/>
+			<input type="button" id="tps_btn" class="muscle_button" value="trapezius"/>
+			
+			<img id="chest" class="muscle" value="chest" src="muscle_images/chest.gif"/>
+			<input type="button" id="chst_btn" class="muscle_button" value="chest"/>
+			
+			<img id="abdomen" class="muscle" value="abdomen" src="muscle_images/abdomen.gif"/>
+			<input type="button" id="abd_btn" class="muscle_button" value="abdomen"/>
+			
+			<img id="tricep" class="muscle" value="triceps" src="muscle_images/triceps_combined.gif"/>
+			<input type="button" id="tcp_btn" class="muscle_button" value="triceps"/>
+			
+			<img id="calves" class="muscle" value="calves" src="muscle_images/calves_combined.gif"/>
+			<input type="button" id="clv_btn" class="muscle_button" value="calves"/>
+			
+			<img id="hamstring" class="muscle" value="hamstrings" src="muscle_images/hamstrings_combined.gif"/>
+			<input type="button" id="hsg_btn" class="muscle_button" value="hamstrings"/>
+			
+			<img id="lower" class="muscle" value="lower" src="muscle_images/lower_back.gif"/>
+			<input type="button" id="lb_btn" class="muscle_button" value="lower"/>
+			
+			<img id="upper" class="muscle" value="upper" src="muscle_images/upper_back_combined.gif"/>
+			<input type="button" id="ub_btn" class="muscle_button" value="upper"/>
+			
+			<img id="lats" class="muscle" value="lats" src="muscle_images/latissimus_dorsi.gif"/>
+			<input type="button" id="lat_btn" class="muscle_button" value="lats"/>
+			
+			<img id="glutes" class="muscle" value="glutes" src="muscle_images/gluteus_maximus.gif"/>
+			<input type="button" id="glt_btn" class="muscle_button" value="glutes"/>
+			
+			<img id="obliques" class="muscle" value="obliques" src="muscle_images/obliques_combined.gif"/>
+			<input type="button" id="obl_btn" class="muscle_button" value="obliques"/>
 		</div>
+
 		
-		<div id="intensity">
-		</div>
-		
-		<div id="generateWorkout">
+		<div id="options">
+			<div id="daysPerWeek" class="opt">
+				<h3> DAYS TO WORKOUT </h3>
+				<input type="checkbox" id="sun" class="regular-checkbox" value="sun"/><label for="sun"> S </label>
+				<input type="checkbox" id="mon" class="regular-checkbox" value="mon"/><label for="mon"> M </label>
+				<input type="checkbox" id="tue" class="regular-checkbox" value="tue"/><label for="tue"> T </label>
+				<input type="checkbox" id="wed" class="regular-checkbox" value="wed"/><label for="wed"> W </label>
+				<input type="checkbox" id="thu" class="regular-checkbox" value="thu"/><label for="thu"> TH </label>
+				<input type="checkbox" id="fri" class="regular-checkbox" value="fri"/><label for="fri"> F </label>
+				<input type="checkbox" id="sat" class="regular-checkbox" value="sat"/><label for="sat"> S </label>
+				
+				<h3> WORKOUT GOALS </h3>
+				<form>
+					<label><input type="radio" name="goals" value="str"> Strength </label>
+					<label><input type="radio" name="goals" value="aes"> Aesthetics </label>
+					<label><input type="radio" name="goals" value="bth"> Both </label>
+				</form>
+			</div>
+			
+			<div id="generateWorkout">
+				<form action = "javascript:sendData();">
+					<input class="opt" type="submit" value="GIVE ME A WORKOUT!"/>
+				</form>
+			</div>	
 		</div>
 	</body>
 </html>

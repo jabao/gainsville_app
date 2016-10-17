@@ -1,42 +1,265 @@
-* {
-	border: 2px dotted;
-}
+
 html {
-  font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
-}
-
-/**
- * Remove default margin.
- */
-
-body {
   margin: 0;
 }
 
 #header {
-	/*font-family: Garamond;*/
+	height: 12.5%;
+	display: block;
+	position: relative;
+	margin-bottom: 1%;
+}
+#header p {
+	line-height: 100px;
+  font-family: 'Candal', sans-serif;
+	font-size: 75px;
 	text-align: center;
-	font-size: 44px;
+	letter-spacing: 4px;
 }
 
-#body {
+/* Removed input[type="reset"], .button, and button for clarity */
+input[type="button"] {
+  position: absolute;
+  display: block;
+  height: 38px;
+  padding: 0 10px;
+  color: #555;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  box-sizing: border-box; }
+input[type="button"]:hover {
+  color: #333;
+  border-color: #ccc; }
+input[type="button"]:focus {
+  outline: 0; }
+input[type="button"]:active {
+  color: #555;
+  border-color: #bbb;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+div div label {
+	cursor: pointer; }
+
+.button_highlight {
+  -moz-box-shadow: inset 0 0 10px #3F61AE;
+  -webkit-box-shadow: inset 0 0 10px #3F61AE;
+  box-shadow: inset 0 0 10px #3F61AE;
+  border-color: #3D8BC5;
+  outline: 0; }
+
+.muscle_highlight {
+	-webkit-filter: hue-rotate(220deg);
+	filter: hue-rotate(220deg); }
+
+.body {
+	position: relative;
+	height: 80%; }
+
+.body img {
 	height: 100%;
-	width: 100%;
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: -1; }
+
+.body muscle_button {
+	z-index: 1; }
+
+#bgImg {
+  z-index: -2; }
+#dlt_btn {
+  top: 17%;
+  left: 30%; }
+#bcp_btn {
+  top: 25.5%;
+  left: 30.5%; }
+#for_btn {
+  top: 34%;
+  left: 29%; }
+#chst_btn {
+  top: 19%;
+  left: 46%; }
+#abd_btn {
+  top: 38.5%;
+  left: 47.1%; }
+#tps_btn {
+  top: 9%;
+  left: 51%; }
+#qdp_btn {
+  top: 60%;
+  left: 30.5%; }
+#tcp_btn {
+  top: 25.35%;
+  left: 48.2%; }
+#clv_btn {
+  top: 75%;
+  left: 62.25%; }
+#hsg_btn {
+  top: 60%;
+  left: 62.65%; }
+#lb_btn {
+  top: 37.5%;
+  left: 65%; }
+#ub_btn {
+  top: 20%;
+  left: 64.5%; }
+#lat_btn {
+  top: 31%;
+  left: 65%; }
+#glt_btn {
+  top: 47%;
+  left: 66.3%; }
+#obl_btn {
+  top: 32%;
+  left: 47%; }
+
+.opt {
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  background-color: #3F61AE; /* BELIZE HOLE #2980b9*/
+  border-radius: 7.5px; }
+
+#options div {
+	position: absolute;
+	width: 300px;
+}
+#options div h3 {
+	margin-top: 22.5px;
+	margin-bottom: 12.5px;
+	font-weight: 900;
 }
 
-#daysPerWeek{
-	
+#daysPerWeek {
+	top: 50%;
+	right: 7.5%;
+	transform: translateY(-50%);
+	font-family: 'Lato', cursive;
 }
-
-#intensity{
-	
+#daysPerWeek label {
+	font-size: 14px;
+	margin: 0px 0px 15px 0px;
+	text-align: center;
+	font-weight: 600;
+}
+#daysPerWeek form label {
+	font-size: 17px;
+	font-weight: 500;
+}
+#daysPerWeek form input[type=radio] {
+	width: 1.2em;
+	height: 1.2em;
 }
 
 #generateWorkout {
-	
+	top: 70%;
+	right: 5.5%;
 }
-button,
-.button {
-  margin-bottom: 1rem; }
+#generateWorkout form input[type=submit] {
+  padding: 17.5px 0px;
+  width: 225px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bolder;
+  white-space: normal;
+  line-height: 100%;
+}
+#generateWorkout form input[type=submit]:focus {
+	outline: 0;
+}
+#generateWorkout form input[type=submit]:hover {
+	background-color: #1E5D86;
+}
+
+.regular-checkbox {
+	display: none;
+}
+.regular-checkbox + label {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 5px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	margin: 0px 4px;
+}
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.regular-checkbox:checked + label {
+	background-color: #e9ecee;
+	/**background-color: #6991AC;**/
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+/* navbar */
+.navbar-wrap {
+  width: 50%;
+  margin: 0 auto;
+  top: -30px;
+  position: relative;
+}
+
+/* Remove margins and padding from the list, and add a black background color */
+.topnav {
+    font-family: sans-serif;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+}
+
+.topnav li {
+  display: inline;
+}
+
+/* Style the links inside the list items */
+.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.1s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+.topnav li a:hover {
+  background-color: #555;
+}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+.topnav li.icon {display: none;}
